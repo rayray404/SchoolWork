@@ -1,0 +1,4 @@
+Write a program that prompts the user to input an integer and raises a ValueError if input is not a valid integer.
+Write a program that reads two numbers and raises TypeError if input is not numerical.
+Write a program that reads a list and raises IndexError if for any operation index is out of range.
+Write a program that read details (name, subject, marks) of students for result preparation. Incorporate all exception handling codes such as ValueError, IndexError, ZeroDivisionError, User defined Exceptions.
