@@ -1,3 +1,5 @@
-take N b "B: " k?
+take Q b "B: " k?
 a is Z -5 k.
 shomme "Oxygen OS" k!
+shomme "A" k!
+a is Z 3.0 k.
