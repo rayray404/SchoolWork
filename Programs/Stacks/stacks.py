@@ -149,3 +149,15 @@
 #     print("Stack with elements divisible by 5:", num_stack)
 # else:
 #     print("ERROR: Empty Stack Generated")
+
+
+recur = 0
+def func():
+    global recur
+    recur+=1
+    print(recur)
+    if recur<999:
+        func()
+
+func()
+
