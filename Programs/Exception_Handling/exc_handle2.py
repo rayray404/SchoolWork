@@ -20,7 +20,7 @@
 #         num2 = input("Number 2: ")
 #         if not (num1.isnumeric() and num2.isnumeric()):
 #             raise TypeError
-#     except TypeError:  
+#     except TypeError:
 #         print("TypeError: Inputted Number is not of numeric data-type")
 #     else:
 #         sum = float(num1) + float(num2)
