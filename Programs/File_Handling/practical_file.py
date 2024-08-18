@@ -125,3 +125,208 @@
 #     write_file.writelines(new_text)
 
 #C2
+# import pickle
+# def athletics ():
+#     athletics = []
+#     with open("sports.dat", "rb") as read_file:
+#         try:
+#             while True:
+#                 participant = pickle.load(read_file).split()
+#                 if participant[0] == "Athletics":
+#                     athletics.append(' '.join(participant))
+#         except EOFError:
+#             pass
+#     with open("Athletic.dat", "wb+") as write_file:
+#         for participant in athletics:
+#             pickle.dump(participant, write_file)
+# athletics()
+
+#C3
+# phone_num = []
+# with open("phone.txt", "r") as read_file:
+#     phone_num = read_file.readlines()
+# for i in range(len(phone_num)):
+#     string = phone_num[i]
+#     string = string.split()[0:2]
+#     phone_num[i] = string
+# print("Name \t\t Phone")
+# for num in phone_num:
+#     print(num[0], "\t\t", num[1])
+
+#c4
+# with open("Poem.txt", "r") as read_file:
+#     poem = read_file.read()
+# poem = poem.lower().split()
+# counts = {'to': poem.count('to'), 
+#           'the': poem.count('the')}
+# for i in counts:
+#     print(i, "count:", counts[i])
+
+#c5
+# def AMCount():
+#     with open("STORY.txt", "r") as read_file:
+#         story = read_file.read()
+#     story = story.lower()
+#     counts = {'A': story.count('a'), 
+#             'M': story.count('m')}
+#     for i in counts:
+#         print(i, "count:", counts[i])
+# AMCount()
+
+#c9
+# def KLineCount():
+#     with open("MYNOTES.txt", "r") as read_file:
+#         notes = read_file.readlines()
+#     counts = {'K': 0}
+#     for line in notes:
+#         if line[0].lower() == 'k':
+#             counts["K"]+=1
+#     for i in counts:
+#         print(i, "count:", counts[i])
+# KLineCount()
+
+#c10
+# def DISPLAYWORDS():
+#     small_words = []
+#     with open("STORY.txt", "r") as read_file:
+#         story = read_file.read()
+#     for word in story.split():
+#         if len(word)<4:
+#             small_words.append(word)
+#     small_words = ', '.join(small_words)
+#     print("Words with length less than 4:", small_words)
+# DISPLAYWORDS()
+
+
+#c15
+# import pickle 
+
+# def pickle_member():
+#     members=[]
+#     count = int(input("Member count: "))
+#     for i in range(count):
+#         member = {}
+#         print(i+1, "Member Details")
+#         member["MemberNo."] = int(input("Member Number: "))
+#         member["Name"] = input("Member Name: ")
+#         members.append(member)
+#     with open("member.dat", "wb+") as write_file:
+#         for member in members:
+#             pickle.dump(member, write_file)
+# pickle_member()
+
+#c16
+# import pickle 
+
+# def find_s0105():
+#     found = None
+#     with open("staff.dat", "rb") as staff_file:
+#         try:
+#             while True:
+#                 staff = pickle.load(staff_file)
+#                 if staff['Staffcode'] == "S0105":
+#                     found = staff
+#         except EOFError:
+#             pass
+#     if found==None:
+#         print("No staff with ID S0105 found")
+#     else:
+#         print(found)
+# find_s0105()
+
+#c19
+
+
+# import pickle
+
+# def CreateFile():
+#     count = int(input("Book Count: "))
+
+#     for i in range(count):
+#         print("Book", i+1)
+#         with open("Book.dat", "ab") as book_file:
+#             book_no = int(input("Book Number: "))
+#             book_name = input("Name: ")
+#             author = input("Author: ")
+#             price = float(input("Price: "))
+#             book = [book_no, book_name, author, price]
+#             pickle.dump(book, book_file)
+
+# def CountRec(Author):
+#     books_written=0
+#     with open("Book.dat", "rb") as book_file:
+#         try:
+#             while True:
+#                 book = pickle.load(book_file)
+#                 if book[2]==Author:
+#                     books_written+=1
+#         except EOFError:
+#             print("Total Books written by", Author, ":", books_written)
+        
+# CreateFile()
+# CountRec("Newton")
+
+
+#c20
+# def Show_words():
+#     five_words = []
+#     with open("NOTES.txt", 'r') as read_file:
+#         text = read_file.read()
+#     text=text.split('\n')
+#     for line in text:
+#         words = line.split()
+#         if len(words)==5:
+#             five_words.append(line)
+#     five_words = '\n'.join(five_words)
+#     print(five_words)
+# Show_words()
+
+#c23
+# import csv
+
+# def delimin_changer(delim):
+#     rows = []
+#     read_file = open("csv_file.csv", 'r')
+#     reader = csv.reader(read_file, delimiter=",")
+#     for row in reader:
+#         rows.append(row)
+#     read_file.close()
+
+#     write_file = open("new_csv_file.csv", 'w+')
+#     writer = csv.writer(write_file, delimiter=delim)
+#     writer.writerows(rows)
+#     write_file.close()
+
+# delimin_changer('@')
+
+#c25
+import csv
+
+def add():
+    fid = int(input("ID: "))
+    fname = input("Name: ")
+    fprice = input("Price: ")
+    record = [fid, fname, fprice]
+    write_file = open("furdata.csv", 'a')
+    writer = csv.writer(write_file)
+    writer.writerow(record)
+    write_file.close()
+
+def search():
+    costly_furniture = []
+    read_file = open("furdata.csv", 'r')
+    reader = csv.reader(read_file)
+    for row in reader:
+        if int(row[2])>10000:
+            costly_furniture.append(row)
+    read_file.close()
+    print("Records of furniture with price more than 10,000:")
+    for furniture in costly_furniture:
+        print(furniture)
+
+count = int(input("Furniture Count: "))
+for i in range(count):
+    print("Furniture", i+1)
+    add()
+
+search()

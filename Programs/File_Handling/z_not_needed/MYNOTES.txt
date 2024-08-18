@@ -1,0 +1,5 @@
+Gram is unit of mass
+Kilogram is 1,000 grams
+Megagram is 1,000,000 grams
+kilo- means thousand
+mega means million
