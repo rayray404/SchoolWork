@@ -1,0 +1,4 @@
+This line has five lines. 
+This one has four.
+Five is a special number.
+Four is not.
